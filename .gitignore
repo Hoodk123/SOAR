@@ -1,0 +1,27 @@
+# Dependencies
+node_modules
+
+# Builds
+dist
+*.log
+
+# Env
+.env
+.env.*
+
+# Editor
+.vscode
+.idea
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vite cache
+**/.vite
+
+# Coverage
+coverage
+
+# Misc
+*.local
