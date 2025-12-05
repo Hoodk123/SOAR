@@ -6,6 +6,7 @@ dist
 *.log
 
 # Env
+venv
 .env
 .env.*
 __pycache__

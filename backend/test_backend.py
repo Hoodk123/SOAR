@@ -3,10 +3,12 @@
 Quick Test Script
 Tests backend functionality without starting the server
 """
+import unittest
+import json
 import sys
 import os
 
-# Add backend to path
+# Add parent directory to path so we can import app
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 
 from app import create_app

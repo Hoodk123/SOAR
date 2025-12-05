@@ -53,7 +53,26 @@ def setup_logging(app):
     
     app.logger.info("Application logging successfully configured.")
 
-# You can also define the security logger here if needed later:
-security_logger = logging.getLogger('security')
-security_logger.setLevel(logging.INFO)
-# (Needs its own handler setup for security auditing)
+# Security Logger Wrapper
+class SecurityLogger:
+    def __init__(self):
+        self.logger = logging.getLogger('security')
+        self.logger.setLevel(logging.INFO)
+    
+    def info(self, msg, *args, **kwargs):
+        self.logger.info(msg, *args, **kwargs)
+        
+    def warning(self, msg, *args, **kwargs):
+        self.logger.warning(msg, *args, **kwargs)
+        
+    def error(self, msg, *args, **kwargs):
+        self.logger.error(msg, *args, **kwargs)
+
+    def log_alert(self, alert):
+        """Log a security alert event"""
+        self.logger.info(
+            f"SECURITY ALERT: [{alert.severity.upper()}] {alert.title} "
+            f"(Source: {alert.source}, IP: {alert.ip_address})"
+        )
+
+security_logger = SecurityLogger()

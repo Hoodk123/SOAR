@@ -1,1 +1,47 @@
 @import "tailwindcss";
+
+@theme {
+  --color-background: #050505;
+  --color-surface: #0a0a0a;
+  --color-surface-hover: #121212;
+  --color-border: #222222;
+  --color-primary: #ffffff;
+  --color-secondary: #a1a1aa;
+  --color-accent: #00ff9d; /* Neon Green */
+  --color-accent-glow: rgba(0, 255, 157, 0.2);
+  --color-danger: #ff4d4d;
+  --color-warning: #ffd700;
+  --color-success: #00ff9d;
+  
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Neuromorphic / Glassmorphism Utilities */
+.glass-panel {
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.glow-text {
+  text-shadow: 0 0 10px var(--color-accent-glow);
+}
+
+.grid-bg {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, #222 1px, transparent 1px),
+    linear-gradient(to bottom, #222 1px, transparent 1px);
+  mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+}

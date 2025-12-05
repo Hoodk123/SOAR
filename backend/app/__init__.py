@@ -97,10 +97,13 @@ def register_blueprints(app):
     app.register_blueprint(alerts.bp)
     logger.info("Alert routes registered")
     
+    from app.routes import playbooks
+    app.register_blueprint(playbooks.bp)
+    logger.info("Playbook routes registered")
+    
     # TODO: Register other blueprints when created
-    # from app.routes import incidents, playbooks, analytics
+    # from app.routes import incidents, analytics
     # app.register_blueprint(incidents.bp)
-    # app.register_blueprint(playbooks.bp)
     # app.register_blueprint(analytics.bp)
 
 

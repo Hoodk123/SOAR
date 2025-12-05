@@ -1,10 +1,23 @@
-import React from "react";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import MainLayout from './layouts/MainLayout';
+import Dashboard from './pages/Dashboard';
+import Alerts from './pages/Alerts';
+import Playbooks from './pages/Playbooks';
 
-export default function App() {
+function App() {
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold text-gray-900">SOAR Frontend</h1>
-      <p className="mt-2 text-gray-600">React + Tailwind v4 setup is working.</p>
-    </div>
+    <Router>
+      <MainLayout>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/alerts" element={<Alerts />} />
+          <Route path="/playbooks" element={<Playbooks />} />
+          <Route path="/settings" element={<div className="text-white">Settings (Coming Soon)</div>} />
+        </Routes>
+      </MainLayout>
+    </Router>
   );
 }
+
+export default App;
